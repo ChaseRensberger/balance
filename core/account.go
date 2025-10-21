@@ -1,4 +1,4 @@
-package main
+package core
 
 import (
 	"encoding/csv"
@@ -12,7 +12,7 @@ type Account struct {
 	Balance int
 }
 
-func loadAccounts() ([]Account, error) {
+func LoadAccounts() ([]Account, error) {
 	balanceDir, err := GetBalanceDir()
 	if err != nil {
 		return nil, err
@@ -51,7 +51,7 @@ func loadAccounts() ([]Account, error) {
 	return accounts, nil
 }
 
-func saveAccounts(accounts []Account) error {
+func SaveAccounts(accounts []Account) error {
 	balanceDir, err := GetBalanceDir()
 	if err != nil {
 		return err

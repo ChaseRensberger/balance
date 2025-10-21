@@ -1,4 +1,4 @@
-package main
+package core
 
 import (
 	"encoding/csv"
@@ -15,7 +15,7 @@ type Transaction struct {
 	Timestamp time.Time
 }
 
-func loadTransactions() ([]Transaction, error) {
+func LoadTransactions() ([]Transaction, error) {
 	balanceDir, err := GetBalanceDir()
 	if err != nil {
 		return nil, err
@@ -55,7 +55,7 @@ func loadTransactions() ([]Transaction, error) {
 	return transactions, nil
 }
 
-func saveTransactions(transactions []Transaction) error {
+func SaveTransactions(transactions []Transaction) error {
 	balanceDir, err := GetBalanceDir()
 	if err != nil {
 		return err
